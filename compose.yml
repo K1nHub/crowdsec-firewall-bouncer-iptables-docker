@@ -1,0 +1,12 @@
+services:
+  crowdsec-firewall-bouncer:
+    container_name: crowdsec-firewall-bouncer
+    build:
+      context: .
+      dockerfile: Dockerfile-firewall
+    restart: always
+    environment:
+      API_KEY: 'API_KEY_FROM_CSCLI'
+      CS_HOST: 'CROWDSEC_IP:PORT'
+    cap_add:
+      - NET_ADMIN
